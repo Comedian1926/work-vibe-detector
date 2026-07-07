@@ -1,0 +1,12 @@
+node_modules
+dist
+.vite
+npm-debug.log*
+.agents
+logs
+output
+screenshots
+server*.log
+assets/*.png
+assets/hero-detector.webp
+assets/scan-panel.webp
