@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { SHARE_URL } from "../src/constants.js";
 import { QUESTIONS } from "../src/data.js";
 import { calculateResult, getDefaultAnswers } from "../src/logic.js";
 
@@ -29,6 +30,7 @@ test("calculateResult returns the expected default score band", () => {
   assert.equal(result.maxScore, 145);
   assert.equal(result.percent, 74);
   assert.equal(result.level.name, "飞书包浆体");
+  assert.ok(result.shareText.includes(SHARE_URL));
   assert.match(result.cert, /^BW-\d{8}-\d{3}$/);
 });
 

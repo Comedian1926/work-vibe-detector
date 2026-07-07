@@ -1,4 +1,5 @@
 import { DIMENSIONS, LEVELS, QUESTIONS } from "./data.js";
+import { SHARE_URL } from "./constants.js";
 
 const DIMENSION_KEYS = Object.keys(DIMENSIONS);
 const MAX_POSSIBLE_SCORE = getMaxPossibleScore();
@@ -41,7 +42,7 @@ export function calculateResult(answers = getDefaultAnswers()) {
   const dateText = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
     date.getDate(),
   ).padStart(2, "0")}`;
-  const shareText = `我被鉴定为 ${percent}% ${level.name}，身份是“${identity.identity}”。你也来看看自己熟到几分。`;
+  const shareText = `我被鉴定为 ${percent}% ${level.name}，身份是“${identity.identity}”。你也来看看自己熟到几分：${SHARE_URL}`;
 
   return { percent, total, maxScore, dims, level, identity, symptoms, prescription, cert, dateText, shareText };
 }

@@ -138,13 +138,10 @@ export default function App() {
     }
   }, [result.shareText]);
 
-  const handleSaveReport = useCallback(async () => {
+  const handleSaveReport = useCallback(async (target) => {
     try {
-      const [{ saveReportImage }, { default: reportCardBg }] = await Promise.all([
-        import("./reportImage"),
-        import("../assets/report-card-bg.webp"),
-      ]);
-      await saveReportImage(result, reportCardBg);
+      const { saveReportImage } = await import("./reportImage");
+      await saveReportImage(target, `work-vibe-report-${result.percent}.png`);
       toast.success("报告图片已生成");
     } catch {
       toast.error("保存失败，请稍后再试");
